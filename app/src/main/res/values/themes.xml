@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.com/tools">
+    <style name="Theme.DevToolsBrowser" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#0EA5E9</item>
+        <item name="colorPrimaryVariant">#0284C7</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#6366F1</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSurface">#1E293B</item>
+        <item name="colorOnSurface">#F1F5F9</item>
+        <item name="colorError">#EF4444</item>
+        <item name="android:statusBarColor">#0F172A</item>
+        <item name="android:navigationBarColor">#0F172A</item>
+        <item name="android:windowBackground">#0F172A</item>
+    </style>
+</resources>

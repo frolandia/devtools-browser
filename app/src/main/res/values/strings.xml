@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DevTools Browser</string>
+    <string name="url_hint">Cari atau ketik alamat web</string>
+</resources>
