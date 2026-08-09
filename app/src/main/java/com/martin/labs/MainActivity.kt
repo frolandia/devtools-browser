@@ -15,6 +15,10 @@ import android.webkit.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import java.io.InputStream
 import java.nio.charset.StandardCharsets
@@ -56,14 +60,27 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled", "JavascriptInterface")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindow(window, false)
         setContentView(R.layout.activity_main)
 
+        applyEdgeToEdgeInsets()
         initViews()
         setupWebView()
         setupNavigation()
         setupSwipeRefresh()
 
         webView.loadUrl("https://google.com")
+    }
+
+    private fun applyEdgeToEdgeInsets() {
+        val root = findViewById<View>(R.id.rootLayout)
+        val toolbar = findViewById<View>(R.id.toolbar)
+        ViewCompat.setOnApplyWindowInsetsListener(root) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            toolbar.updatePadding(top = systemBars.top)
+            root.updatePadding(bottom = systemBars.bottom)
+            insets
+        }
     }
 
     private fun initViews() {
